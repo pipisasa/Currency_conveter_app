@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import CurrencyInput from './components/CurrencyInput';
+import {useState} from 'react'
 
 function App() {
+
+  const [amount1, setAmount1] = useState(1)
+  const [amount2, setAmount2] = useState(1);
+  const [currency1, setCurrency1] = useState('USD')
+  const [currency2, setCurrency2] = useState('USD');
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CurrencyInput currencies={['USD']} amount={amount1} currency={currency1} />
+      <CurrencyInput currencies={['USD']} amount={amount2} currency={currency2} />
     </div>
   );
 }
