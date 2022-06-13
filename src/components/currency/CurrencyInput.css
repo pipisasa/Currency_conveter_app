@@ -1,0 +1,13 @@
+input.amount {
+  border-radius: 5px;
+  background: black;
+  color: white;
+  margin-right: 6px;
+  margin-bottom: 2px;
+}
+select.currency {
+  border-radius: 5px;
+  background: black;
+  color: white;
+  font-weight: 600;
+}

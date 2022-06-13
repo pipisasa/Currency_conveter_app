@@ -1,0 +1,19 @@
+.showprice {
+  align-items: center;
+  display: flex;
+  margin-bottom: 13px;
+  margin-top: 5px;
+  height: 50px;
+  width: 45%;
+  max-width: 350px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.showprice__img {
+  width: 30px;
+}
+.showprice__info {
+  flex: 1;
+}
