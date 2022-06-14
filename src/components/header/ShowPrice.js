@@ -1,16 +1,13 @@
 import React from "react";
 import "./ShowPrice.css";
-import numeral from "numeral";
 
-function ShowPrice({ exchange, imgurl }) {
+function ShowPrice({ exchange, imgurl, rate }) {
   return (
     <div className="showprice">
-      <div className="showprice__rate"></div>
-      <img className="showprice__img" alt="" src={imgurl} />
-      <div className="showprice__info"></div>
-      <div className="showprice__currency">{exchange}</div>
-      <div className="showprice__price">
-        {numeral(1000.111).format("0,0.[00]")}
+      <img className="showprice__img" alt="img" src={imgurl} />
+      <div className="showprice__info">
+        <div className="showprice__currency">{exchange}</div>
+        <div className="showprice__price">{rate.rate}</div>
       </div>
     </div>
   );

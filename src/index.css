@@ -20,6 +20,7 @@ code {
   display: flex;
   flex-direction: column;
   padding-top: 5%;
+  padding-bottom: 40px;
 }
 .converter {
   text-align: center;

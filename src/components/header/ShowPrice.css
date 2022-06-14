@@ -13,7 +13,16 @@
 
 .showprice__img {
   width: 30px;
+  margin-left: 10px;
 }
 .showprice__info {
   flex: 1;
+  font-weight: 500;
+}
+.showprice__currency {
+  color: black;
+}
+
+.showprice__price {
+  color: black;
 }
