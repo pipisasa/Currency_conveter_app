@@ -9,11 +9,19 @@
   background-color: white;
   border-radius: 5px;
   padding: 5px;
+  /* Поменял цвет текста */
+  color: black;
+}
+
+.showprice__price {
+  /* Добавил отступ */
+  margin-right: 1rem;
 }
 
 .showprice__img {
   width: 30px;
 }
+
 .showprice__info {
   flex: 1;
 }

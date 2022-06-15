@@ -8,16 +8,26 @@ import { dateTime } from "./utils";
 function App() {
   const [amount1, setAmount1] = useState(1);
   const [amount2, setAmount2] = useState(1);
-  const [amount3, setAmount3] = useState(1);
+  const [usdToUah, setUsdToUah] = useState(1);
+  const [eurToUah, setEurToUah] = useState(1);
   const [currency1, setCurrency1] = useState("USD");
   const [currency2, setCurrency2] = useState("EUR");
-  const [currency3, setCurrency3] = useState("UAH");
   const [rates, setRates] = useState([]);
 
   useEffect(() => {
     axios.get("https://cdn.cur.su/api/latest.json").then((response) => {
-      setRates(response.data.rates);
-      console.log(response.data.rates);
+      const _rates = response.data.rates;
+      setRates(_rates);
+      console.log({ _rates })
+      // Получаем курс доллара к гривну
+      const _usdToUah = _rates['UAH'];
+      // Получаем курс доллара к евро
+      const _usdToEur = _rates['EUR'];
+      // Высчитваем курс евро к гривну;
+      const _eurToUah = _usdToUah / _usdToEur;
+      // сохраняем значения;
+      setUsdToUah(_usdToUah);
+      setEurToUah(_eurToUah);
     });
   }, []);
 
@@ -49,19 +59,6 @@ function App() {
     setCurrency2(currency2);
   }
 
-  // вот эти функции где мне вызвать и результат передать в компонент Showprice
-
-    function handleConvertUsd(amount1) {
-      setAmount3(format((amount1 * rates[currency3])));
-      setAmount1(amount1);
-    }
-
-    function handleConvertEur(amount3) {
-      setAmount3(format(amount3 * rates[currency2]));
-      setCurrency1(currency1);
-    }
-
-
   return (
     <>
       <div className="app">
@@ -73,10 +70,14 @@ function App() {
         <ShowPrice
           exchange="USD/UAH"
           imgurl="https://pngimg.com/uploads/dollar_sign/small/dollar_sign_PNG3.png"
+          // Передали значение
+          value={usdToUah}
         />
         <ShowPrice
           exchange="EUR/UAH"
           imgurl="https://pngimg.com/uploads/euro_sign/small/euro_sign_PNG3.png"
+          // Передали значение
+          value={eurToUah}
         />
       </div>
       <div className="converter">
